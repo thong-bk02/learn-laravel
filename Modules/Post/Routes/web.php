@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Support\Facades\Route;
+
+Route::prefix('post')->group(function() {
+    Route::get('/', 'PostController@index');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
