@@ -1,0 +1,2 @@
+Tạo bảng qua migration : php artisan make:migration create_tên*table_table
+Kích hoạt migration để tạo bảng: php artisan migrate

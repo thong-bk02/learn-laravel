@@ -1,0 +1,8 @@
+vào file .env => dòng từ 11 đến 16 =>congig cấu hình để kết nối DB => vào phpmyadmin tạo 1 DB có tên giống DB_DATABASE
+        
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=laravel
+        DB_USERNAME=root
+        DB_PASSWORD=

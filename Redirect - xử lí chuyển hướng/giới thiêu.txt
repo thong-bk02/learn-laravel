@@ -1,0 +1,30 @@
+Redirect (đường dẫn trả về);
+Đây là chức năng chuyển hướng người dùng từ nơi này đến nơi khác
+    - chuyển hướng đến một Url nội bộ
+        return redirect('posts/show);
+
+    - redirect về trang trước:
+        return redirect()->back();
+
+    - nếu trang trc đó chúng ta có post gì và ko muốn mất các info đã nhập, ta sẽ sử dụng ->withInput()
+        return redirect()->back()->withInput();
+
+    - Redirect kèm thông tin trả về:
+        Ta sẽ dùng method with(tên_session, nội dung) để redirect về
+        Ví dụ khi redirect một thông báo thành công:
+        #Controller 
+            return redirect('user/register')->with('success', 'Đăng ký thành công');
+        Ở view, chúng ta sẽ kiểm tra và xuất thông báo như sau:
+        #View
+            @if (session('success'))
+                <div class="alert alert-success">
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
+
+    - Redirect với Named Route: 
+        return redirect()->route('Route');
+    hoặc Route::get('user/{id}', 'UserProfileController@profile')->name('userProfile');
+
+    - Chuyển tới 1 website bên ngoài
+        return redirect()->away('https://www.google.com');    

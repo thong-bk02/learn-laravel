@@ -1,0 +1,5 @@
+link build bảng thống kê: https://www.itsolutionstuff.com/post/laravel-9-chartjs-chart-example-tutorialexample.html
+
+link mở rộng - phát triển bảng: 
+    - https://www.chartjs.org/docs/next/samples/line/multi-axis.html
+    - https://github.com/chartjs/Chart.js/blob/master/docs/samples/line/multi-axis.md

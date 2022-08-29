@@ -1,0 +1,42 @@
+//định tuyến cơ bản
+Route::get('post', function(){
+    return "thong";
+});
+
+Route::get('admin/product', function (){
+    return "trang admin sp";
+});
+
+//định tuyến có tham số (tham số phải để trong {})
+Route::get('post/{id}', function($id){
+    return "$id";
+});
+Route::get('post/{cat_id}/page/{page}', function($cat_id, $page){
+    return $cat_id . '--' .$page;
+});
+
+//đặt tên định tuyến
+Route::get('user/profile', function(){
+    return route('profile');
+}) -> name('profile');
+Route::get('admin/product/add', function(){
+    return route('product.add');
+}) -> name('product.add');
+
+/* định tuyến có tham số tùy chọn
+    domain.com/users => Hiển thị ra danh sách user
+    domain.com/users/4 => hiển thị ra user có id =4 */
+Route::get('users/{id?}', function($id = 0){
+    return $id;
+});
+
+// định tuyến với tham số có ràng buộc
+Route::get('product/{slug}/{id}', function($slug, $id){
+return $slug . ' -- ' .$id;
+}) ->where(['id' => '[0-9]+', 'slug' => '[A-Za-z0-9-_]+']);
+
+//định tuyến qua 1 view
+Route::view('/post', 'post', ['id' => 10]);
+
+//định tuyến qua controller
+Route::get('posts/{$id}','PostController@detail');

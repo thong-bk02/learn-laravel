@@ -1,0 +1,1 @@
+- cài đặt visual studio code hoặc phpstorm hoặc subline text

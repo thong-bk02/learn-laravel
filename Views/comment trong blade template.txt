@@ -1,0 +1,1 @@
+bôi đen nội dung php -> nhấn tổ hợpc Ctrl + "/"  -> {{-- NOI_DUNG_PHP --}}

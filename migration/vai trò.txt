@@ -1,0 +1,5 @@
+- công cụ giúp thiết kế database thông qua các dòng lệnh
+- lưu lại lịch sử các lần tương tác trên DB từ đó dễ dàng backup nếu cần
+- cú pháp tạo các trường dữliệu đơn giản và dễ hiểu
+- hữu ích khi làm việc nhóm
+- dễ dàng chia sẻ DB cho người khác khi cần

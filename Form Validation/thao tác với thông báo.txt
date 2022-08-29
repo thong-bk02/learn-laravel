@@ -1,0 +1,57 @@
+# Thực hiện tạo file request 
+    php artisan make:request NameRequest //ex: StorePostRequest
+
+
+
+# App\Http\Request\NameRequest
+    - public function authorize() dùng để để kiểm tra xem tài nguyên có thuộc về sở hữu của người dùng trong việc chỉnh sửa hoặc xóa tài nguyên.
+        giá trị false, tức là chưa được ủy quyền và ngược lại.
+
+    public function rules() //dùng để trả về mảng chứa các valdation rule.
+    {
+        return [
+            'title' => 'bail|required|unique:posts|max:255',
+            'content' => 'required',
+        ];
+    }
+
+    public function messages() //dùng để Tùy chỉnh thông báo lỗi
+    {
+        return [
+            'title.required' => ':attribute bài viết không được bỏ trống',
+            'content.required' => ':attribute bài viết không được bỏ trống'
+        ];
+    }
+
+     public function attributes() //dùng để Tùy chỉnh thuộc tính validation
+    {
+        return [
+            'title' => 'Tiêu đề',
+            'content' => 'Nội dung'
+        ];
+    }
+
+
+
+# ROUTE
+    Route::get('/post/create', [PostController::class, 'create']);
+    Route::post('/post', [PostController::class, 'store']);
+
+
+
+# VIEW -- FORM:     'method' => 'POST'
+    <input id="title" type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="title">
+    <label for="title">Title</label>
+    @error('title')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+
+
+
+# CONTROLLER
+    use App\Http\Requests\NameRequest;
+
+    public function store(NameRequest $request)
+    {
+        $validated = $request->validated();
+    }

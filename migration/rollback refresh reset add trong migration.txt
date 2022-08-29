@@ -1,0 +1,7 @@
+khôi phục lệnh tạo bảng trước : php artisan migrate:rollback
+khôi phục lại cơ sở dữ liệu ở 1 bước cụ thể : php artisan migrate:rollback --step= bước_muốn_rollback
+
+chạy lại toàn bộ migrate: php artisan migrate:refesh
+reset toàn các thao tác trên Migrate : php artisan migrate:reset
+
+thêm cột vào bảng đã tồn tại: php artisan make:migration add_gender_to_users_table --table=user

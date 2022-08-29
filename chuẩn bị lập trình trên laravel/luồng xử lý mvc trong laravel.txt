@@ -1,0 +1,13 @@
+Luồng xử lý mvc trong Laravel
+    - Route: định tuyến: nhận yêu cầu từ người dùng và phân tích để xem là sẽ gửi đến 
+        chức năng cho controller thích hợp để xử lí 
+    - Controller: trung tâm điều khiển và xử lý
+    - Model: Chuyên là việc với database
+    - View: Hiển thị giao diện cho người dùng(trên trình duyệt)
+
+    *luồng xử lý của 1 request: 
+    ngay thời điểm nhận truy cập của người dùng thì ROUTING sẽ phân tích và gửi cái yêu cầu này đến 1 cái 
+    CONTROLLER thích hợp, Controller sẽ phân tích và xem xét xem chức năng này có cần làm việc với DB hay 
+    không, nếu có thì nó sẽ chuyển qua MODEL(làm việc với DB: thêm, sửa, xóa, lấy dữ liệu) sau đó Model sẽ 
+    trả dữ liệu về Controller, sau đó Controller sẽ chuyển dữ liệu xử lí và gửi qua View(kết hợp dữ liệu từ
+    Controller và giao diện trong View để tạo ra 1 trang hiển thị đúng với yêu cầu của người dùng) 

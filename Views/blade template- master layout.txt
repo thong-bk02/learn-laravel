@@ -1,0 +1,14 @@
+- giao diện có bộ khung chung cho website
+- những khu vực có nội dung thay đổi sẽ được gọi dữ liệu phù hợp trong từng tác vụ
+- tách biệt code html, css và php
+- file có đuôi mở rộng *.blade.php
+- giao diện có thính kế thừa, không cần phải include file php như thông thường
+- các thao tác php trên blade template có cú pháp riêng
+
+- định nghĩa 1 layout
+    @yield('...') : gọi section
+    @section('slidebar')...@show: định nghĩa 1 phần nội dung có tên slidebar
+
+- hiển thị dữ liệu: 
+    {{ $data }}    hiển thị dữ liệu data đã qau bộ lọc htmlspecialchars()
+    {!! $data !!}  hiển thị cấu trúc dữ liệu có định dạng html css

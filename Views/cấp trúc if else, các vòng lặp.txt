@@ -1,0 +1,16 @@
+A) cú pháp cấu trúc if else trên blade
+    @if ($num % 2 == 0)
+        <p>{{ $num }}: là số chẵn</p>
+    @else
+        <p>{{ $num }}: là số lẻ</p>
+    @endif
+
+B) vòng lặp for
+    @for($i=0, $i < 10, $i++)
+        <p>{{ $i }}: is current number</p>
+    @endfor
+
+C) vòng lặp foreach
+    @foreach ($users as $user)
+        <p>this is user {{ $user['name'] }}</p>
+    @endforeach

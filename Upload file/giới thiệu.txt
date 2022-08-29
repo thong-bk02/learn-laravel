@@ -1,0 +1,18 @@
+Đây là thao tác giúp chuyển file từ máy tính lên Server và thông thường hay sử dụng để upload những file ảnh
+
+- Một số phương thức hay dùng:
+$request->hasFile('file') //kiểm tra xem có file hay k->trả về true nếu có và false nếu k
+
+$file = $request->file; //
+
+$file->getClientOriginalName() //
+
+$file->getClientOriginalExtension() //
+
+$file->getRealPath() //
+
+$file->getSize() //
+
+$file->getMineType() //lấy ra kiểu file
+
+$file->move('upload' ,$file->getClientOriginalName()); // dùng để upload ảnh và folder trên hệ thống

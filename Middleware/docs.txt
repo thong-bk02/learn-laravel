@@ -1,0 +1,8 @@
+tìm hiểu về middleware : https://viblo.asia/p/tim-hieu-ve-middleware-trong-laravel-LzD5dvgWZjY
+
+*khái quát: 
+    Đơn giản nhất bạn có thể hiểu nó phần trong ứng dụng của bạn
+    cho phép bạn gom toàn bộ 50 lần đoạn code nói trên về chung một nột chức năng duy nhất 
+    và có thể tái sử dụng lại. Middleware sẽ có vai trò đứng giữa các request 
+    từ người dùng đến hệ thống của bạn và kiểm tra xem nó có thỏa mãn các điều kiện mà bạn mong muốn 
+    trước khi có thể truy cập vào tính năng mà bạn cung câp

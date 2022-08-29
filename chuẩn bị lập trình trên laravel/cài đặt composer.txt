@@ -1,0 +1,5 @@
+Cài đặt Composer
+    - Composer là gì: là công cụ quản lí các thư viện trong php. Nó giúp download các thư viện cần thiết
+    cho một dự án một cách dễ dàng
+    - Link download : https://getcomposer.org/ 
+    - Link hướng dẫn : https://hocwebchuan.com/tutorial/laravel/install_composer.php

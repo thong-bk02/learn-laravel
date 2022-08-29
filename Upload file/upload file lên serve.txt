@@ -1,0 +1,18 @@
+#NameController
+    public function store(Request $request)
+    {
+        if ($request->hasFile('image')) //kiểm tra xem trong $request có file hay không
+        {
+            $img = $request->image;
+            //lấy tên file
+            echo $img->getClientOriginalName()."<br>";
+            //lấy kích thước file
+            echo $img->getClientOriginalExtension()."<br>";
+            //lấy size
+            echo $img->getSize();
+            
+            $img->move('uploads',$img->getClientOriginalName()); //upload file vào thư mục public/uploads
+        } else {
+            echo "k co file";
+        }
+    }

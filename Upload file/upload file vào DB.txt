@@ -1,0 +1,19 @@
+public function create(StorePostRequest $request)
+    {
+       $request->validated();
+
+        $input = $request->all();
+
+        if ($request->hasFile('image')) {
+            $img = $request->image;
+            //lấy tên file
+            $filename = $img->getClientOriginalName();
+            
+            $img->move('uploads',$img->getClientOriginalName());
+
+            $thumbnail = 'uploads/'.$filename;
+        }
+        
+        $input['thumbnail'] = $thumbnail;
+        Post::create($input);
+    }

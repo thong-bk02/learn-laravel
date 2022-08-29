@@ -1,0 +1,12 @@
+Bao gồm các hàm làm việc với chuỗi
+- tính độ dài chuỗi
+- in thường chuỗi
+- in hoa chuỗi
+- tạo chuỗi ngẫu nhiên 
+- loại bỏ kí tự dư thừa
+- lấy chuỗi con
+- tạo Slug làm link thân thiện
+- nối chuỗi vào cuối chuỗi cho trước
+- tìm kiếm, thay thế trong chuỗi
+- lấy chuỗi con với kí tự cho trước
+- kiểm tra chứa chuỗi con

@@ -1,0 +1,39 @@
+            RELATIONSHIP - ELOQUENT ORM
+A) ONE TO ONE:
+    - tạo bảng featured_images liên kết với bảng posts
+    - tạo model FeaturedImages
+    - trong model Post thêm function liên kết với model Featured :
+        function FeaturedImages(){
+            return $this->hasOne('App\FeaturedImages');
+        }
+    - trong model Featured thêm function liên kết với model Post :
+        function post(){
+            return $this->belongsTo('App\Models\Post');
+        }
+
+    - SELECT dữ liệu thuận nghịch: 
+    #PostsController
+        $post = Post::find(id)->FeaturedImages;
+        return $post;
+
+B) ONE TO MANY
+    #Models/Post
+        function user(){
+            return $this->belongsTo('App\Models\User');
+        }
+
+    #Models/User
+        function posts(){
+            return $this->hasMany('App\Models\Post');
+        }
+    //Lấy dữ liệu
+    #PostsController       kiểm tra xem bài viết có $id do user nào viết
+        $user = Post::find($id)->user;
+        return $user;
+    #PostsController       kiểm tra xem user có $id đã tạo ra những bài viết nào
+        $posts= User::find($id)->posts;
+        return $posts;
+
+
+C) MANY TO MANY 
+    sử dụng phương thức $this->belongsToMany(');

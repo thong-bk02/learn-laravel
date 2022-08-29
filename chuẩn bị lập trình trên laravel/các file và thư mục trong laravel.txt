@@ -1,0 +1,54 @@
+app: chứa tất cả các class của project
+    app/Console : chứa các tập tin định nghĩa các câu lệnh trên artisan
+    app/Exception : chứa các tập tin quản lí/ điều hướng lỗi
+    app/Http/Controller : chứa các controller cảu project
+    app/Http/Middleware : chứa các tập tin lọc và ngăn chặn các Request
+    app/Provider : chứa các file thực hiện khai báo service và bind trong Service Container
+    app/Models : chứa các Model của Project 
+
+bootstrap : chứa những file khởi động framework , những file cấu hình auto loading, route và file cache
+
+config : chứa tất cả những file cấu hình của hệ thống
+
+database : chứa hai thư mục Migration(tạo và thao tác với Database), seeds(tạo dữ liệu mẫu)
+    database/factories : chứa các file định nghĩa các cột bảng dữ liệu để tạo ra các dữ liệu mấu
+    database/migrations : chứa các file tạo và chỉnh sửa dữ liệu
+    database/seeds : chứa các file tạo dữ liệu thêm vào CSDL
+
+lang : chứa tất cả các tệp ngôn ngữ ứng dụng
+
+public : thư mục chứa file index.php giống như cổng cho tất cả các Request vào project, bên trong còn chứa file Javascript và CSS
+
+resources : chứa những file view và raw, các file biên soạn như LESS,SASS hoặc Javascript. Ngoài ra còn chứa tất cả các file language trong project 
+    resources/views : chứa các file view xuất giao diện cho người dùng
+
+routes : chứa tất cả các điều khiển route(đường dãn) trong project 
+    routes/api : cấu hình các route liên quan đến API
+    routes/web : cấu hình các route liên quan đến web(có giao diẹn người dùng)
+
+storage : chứa các file biên soạn blade templates của bạn, file sessions, file caches và những file sinh ta từ project 
+    storage/app : dùng để chứa những file sinh ra từ project
+    storage/framework : chứa những file sinh ra từ framework và caches
+    storage/logs : chứa những file logs.
+    storage/app/public : lưu những file người dùng tạo ra như hình ảnh
+
+tests : chứa những file tests
+
+vendor : chứa các thư mục, file thư viện của Composer
+
+.env : chứa các config chính(cấu hình kết nối DB/email) của Laravel
+
+artisan : thực hiện lệnh cảu laravel
+
+.gitattributes, .gitigrnore : dùng để xử lí git 
+
+composer.json, composer.lock : file sinh ra của composer 
+ 
+package.json : chứa các packege cần dùng cho Project
+
+phpunit.xml : dùng để testing Project
+
+webpack.mix.js : dùng để build các webpack
+
+editor.config : tăng tính nhất quán (consistency) cho code. 
+Nói cách khác, source code phải thống nhất theo một số quy tắc nhất định, khi clone về các máy tính khác nhau, dùng các IDE, text editor khác nhau thì sẽ luôn giống nhau.

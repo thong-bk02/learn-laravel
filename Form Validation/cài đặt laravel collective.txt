@@ -1,0 +1,3 @@
+lệnh cài đặt:  composer require laravelcollective/html
+
+- các lệnh tạo form :    https://laravelcollective.com/docs/6.x/html#text

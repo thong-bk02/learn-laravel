@@ -1,0 +1,6 @@
+Bao gồm những hàm xử lí liên quan đến Url
+    - tạo 1 đường dẫn cơ bản
+    - Tạo đường dẫn qua Route
+    - Tạo đường dẫn qua action
+    - Lấy đường dẫn truy cập hiện tại
+    - Lấy đường dẫ truy cập ở bước trước

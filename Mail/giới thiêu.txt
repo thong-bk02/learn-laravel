@@ -1,0 +1,12 @@
+Là công cụ giúp gửi mail đến người dùng 1 cách tiện lợi làm tăng độ tương tác của hệ thống từ đó
+tăng hiệu quả của trang web 
+- Được sử dụng trong: 
+    - xác thực đăng kí tài khoản
+    - lấy lại mật khẩu
+    - nhận bản tin, thông báo
+    - nhận xác nhận đơn hàng
+- Nội dung: 
+    - cấu hình xây dựng email
+    - gửi mail đến người dùng và 1 số tùy chỉnh
+
+    

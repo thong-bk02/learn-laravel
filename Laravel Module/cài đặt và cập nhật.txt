@@ -1,0 +1,8 @@
+-link hướng dẫn: https://docs.laravelmodules.com/v9/introduction
+các bước cài đặt (phiên bản laravel 9 - php version: 8) :
+	b1: chạy-> composer require nwidart/laravel-modules
+	b2: chạy-> php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+	b3: trong composer.json-> "autoload"-> "psr-4"-> thêm vào: "Modules\\": "Modules/",
+	b4: chạy-> composer dump-autoload
+	b5: trong composer.json-> "extra"-> thêm vào: "module-dir": "Custom"
+	b6: chạy composer update

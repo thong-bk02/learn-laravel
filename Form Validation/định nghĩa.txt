@@ -1,0 +1,8 @@
+- Validation form là gì
+ là thao tác chuẩn hóa dữ liệu form trước khi bước vào xử lí những giai đoạn tiếp theo của dự án.
+ Nó đc coi là bộ lọc và đảm bảo dữ liệu theo định dạng mong muốn.
+     + kiểm tra dữ liệu rỗng
+     + kiểm tra độ dài dữ liệu
+     + kiểm tra định dạng theo các biểu thức chính quy
+     + kiểm tra dữ liệu trùng
+     >>>

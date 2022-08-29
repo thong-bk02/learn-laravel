@@ -1,0 +1,24 @@
+#Controller
+    public function show(){
+        #phân trang k đièu kiện
+        $posts = Post::paginate(5);
+
+        #phân trang có điều kiện
+        $posts = Post::where('id','>',3)->orderBy('id','desc')->paginate(5);
+        return view('posts.show', compact('posts'));
+    }
+
+#View
+    #phân trang k tham số
+    {{ $posts->links() }}
+
+    #phân trang có tham số
+    {{ $posts->appends(['sort'=>'id'])->links() }}
+
+#App\Http\AppServiceProvider
+    use Illuminate\Pagination\Paginator;
+
+    public function boot()
+    {
+        Paginator::useBootstrap();
+    }

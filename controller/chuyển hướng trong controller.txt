@@ -1,0 +1,2 @@
+khi người dùng thao tác với giao diện thì sẽ chuyển hứơng tới view khác(ví dụ người dùng logout hì sẽ chuyển về trang chủ)
+lệnh : return redirect('ROUTE'); hoặc return redirect() ->route('ROUTE.action');

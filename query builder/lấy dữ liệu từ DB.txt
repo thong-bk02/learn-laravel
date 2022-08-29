@@ -1,0 +1,57 @@
+lấy toàn bộ dữ liệu :
+    $biến = DB::table('tên_bảng')->get();
+
+chọn lọc các cột cần thiết:
+    $biến = DB::table('tên_bảng')->select('cột1','cột2',...)->get();
+
+lấy dữ liệu bản ghi:
+    bản ghi đầu tiên:  $biến = DB::table('tên_bảng')->first();
+    lấy bản ghi có điều kiện đơn: $biến = DB::table('tên_bảng')->where('col1','= hoặc > hoặc <','đk')->select('cột1','cột2',...)->get();
+    lấy bản ghi có nhiều điều kiện: 
+        Cách 1: $biến = DB::table('tên_bảng')->where([
+                    ['col1','= hoặc > hoặc <',2],
+                    ['col2','= hoặc > hoặc <','đk'],.
+                    ])->select('cột1','cột2',...)->get();
+        Cách 2: $biến = DB::table('tên_bảng')
+                    ->where('col1','= hoặc > hoặc <',2)
+                    ->orwhere('col2','= hoặc > hoặc <','đk')
+                    ])->select('cột1','cột2',...)->get();
+
+lấy bản ghi theo id:
+    $biến = DB::table('tên_bảng')->find(id_cần_tìm);
+
+đếm số lượng bản ghi trong bảng: 
+    $biến = DB::table('tên_bảng')->count();
+
+một số lệnh thống kê dữ liệu:
+    $biến = DB::table('tên_bảng')->max(cột_cần_tìm); //lấy  giá trị max
+    $biến = DB::table('tên_bảng')->min(cột_cần_tìm); //lấy  giá trị min
+    $biến = DB::table('tên_bảng')->avg(cột_cần_tìm); //lấy  giá trị trung bình
+
+lấy dữ liệu từ nhiều bảng( JOIN )
+    $biến = DB::table('tbl1')
+            ->join('tbl2','tbl2.col_tbl2','=','tbl1.col_tbl1') //col_tbl2 là khóa ngoại của tbl1 và col_tbl2 = col_tbl1
+            ->select('tbl2.col_a','tbl1.col_c')
+            ->get();
+
+Groupt By lấy dữ liệu theo nhóm
+    $users = DB::table('users')
+        ->select(DB::raw('count(*) as user_count, id'))
+        ->where('id', '<>', 1)
+        ->groupBy('id')
+        ->get();
+    *nếu n k hiểu hàm group by thì vào config/database.php -> chuyển strict từ true thành false
+
+Order By sắp xếp dữ liệu theo thống kê
+    theo chiều giảm dần :$orders = DB::table('users')
+                            ->orderBy('updated_at','DESC')
+                            ->get();
+    theo chiều tăng dần :$orders = DB::table('users')
+                            ->orderBy('updated_at')
+                            ->get();
+
+Limit, offset lấy số bản ghi theo giới hạn
+    $biến = DB::table('users')
+    ->offset('2') //bỏ 2 phần tử đầu
+    ->limit('2') //lấy 2 phần tử phía sau 2 phần tử bị hàm offset loại
+    ->get();

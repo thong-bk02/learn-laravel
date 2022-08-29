@@ -1,0 +1,15 @@
+        Tác vụ liên quan đến CONTROLLER
+
+- Tạo Controller bằng mã lệnh : 
+    trên thanh tool chọn -> Terminal -> New Terminal -> php artisan make:controller NameController
+    hoặc cũng có thể tạo1 controller đầy đủ bằng resource : 
+        php artisan make:controller NameController --resource
+- Gọi controller từ Router
+    lệnh: Route::get('Đường_dẫn_trên_URL',[TênController::class, 'tên_class']);
+    nâng cao : Route::resource('Đường_dẫn_trên_URL', TênController::class);
+    ->để kiểm tra xem có những routing nào thì dùng lệnh: php artisan route:list
+
+- Gọi controller có tham số từ URL 
+- Gọi view trong Controller
+- Gửi dữ liệu sang view từ Controller
+- Làm việc với Model

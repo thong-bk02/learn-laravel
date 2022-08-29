@@ -1,0 +1,8 @@
+insert
+select
+update
+delete
+where
+join(tương tác - lấy dữ liệu từ nhiều bảng)
+order by, group by
+count ... 

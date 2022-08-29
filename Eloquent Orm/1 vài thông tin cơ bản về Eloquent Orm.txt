@@ -1,0 +1,10 @@
+lấy dữ liệu bản ghi:
+    Query Builder: $posts = DB::table('posts')->get();
+    Eloquent Orm : $posts = App\Post::all(); //tăng tính bảo mật của quá trình xử lí với DB
+
+    select
+    insert
+    update
+    delete
+    where
+    ...

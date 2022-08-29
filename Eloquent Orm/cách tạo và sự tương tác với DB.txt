@@ -1,0 +1,184 @@
+A) Cách tạo model:
+    cách1 : php artisan make:model NameModel 
+    Cách2 : php artisan make:model NameModel -m   hoặc : php artisan make:model NameModel --migration 
+        cách này vừa tạo model vừa tạo migration
+
+    /*chú thích : trong mỗi model thì sẽ sẽ mặc định(ngầm) có 1 biến $table và n sẽ connect với table trên db có tên bằng: tên Model + "s";
+    nếu không thì chúng ta có thể sửa biến bằng cách: protected $table = 'tên_bảng';
+
+B) Cách lấy tất cả các bản ghi trên Route 
+    use App\Models\Post;
+
+    Route::get('posts/read',function(){
+        $posts = Post::all();
+        return $posts;
+    });
+
+C) Cách lấy tất cả các bản ghi trên Controller
+    use App\Models\Post;
+
+    function read(){
+        $posts = Post::all();
+        return $posts;
+    }
+
+D) Cách lấy danh sách bản ghi ghi theo điều kiện
+    use App\Models\Post;
+
+    function read(){
+        // $posts = Post::where('user_id',3)->get();
+        $posts = Post::where('title','like','%Post%')->get();
+        return $posts;
+    }
+
+E) Cách lấy 1 bản ghi ghi theo điều kiện
+    use App\Models\Post;
+
+    function read(){
+        $posts = Post::where('id',3)->first();
+        return $posts;
+    }
+    
+F) Cách lấy 1 bản ghi theo id
+    use App\Models\Post;
+
+    function read(){
+        $posts = Post::find(3);
+        return $posts;
+    }
+
+F) Cách lấy danh sách bản ghi theo id
+    use App\Models\Post;
+
+    function read(){
+        $posts = Post::find([1,3]);
+        return $posts;
+    }
+
+G) Order By sắp xếp dữ liệu
+    use App\Models\Post;
+
+    function read(){
+        $posts = Post::orderBy('tên trường cần sắp xếp')->get(); // sắp xếp theo chiều tăng dần
+        // $posts = Post::orderBy('tên trường cần sắp xếp','desc')->get();; // sắp xếp theo chiều giảm dần
+        return $posts;
+    }
+
+    
+H) Groupt By lấy dữ liệu theo nhóm
+    use App\Models\Post;
+
+    $posts = Post::selectRaw("count('id') as user_count, user_id")
+        ->groupBy('id')
+        ->get();
+
+I) Limit, Offset
+    $posts = Post::limit(Number)->get();
+    $posts = Post::limit(Number)->offset(Number)->get();
+
+J) thêm dữ liệu vào bảng theo phương thức Save()
+    use App\Models\Post;
+
+    function add(){
+        $post = new Post;
+        
+        $post->title = 'title';
+        $post->content = 'content';
+        $post->user_id = 'user_id';
+
+        $post->save();
+    }
+
+K) cập nhật dữ liệu vào bảng theo phương thức Save()
+    use App\Models\Post;
+
+    function update($id){
+        $post = Post::find($id);
+        
+        $post->title = 'title';
+        $post->content = 'content';
+        $post->user_id = 'user_id';
+
+        $post->save();
+    }
+
+L) thêm dữ liệu vào bảng theo phương thức create()
+    use App\Models\Post;
+
+    function add(){
+        Post::create([
+            'title' =>'create',
+            'content' => 'content create',
+            'user_id' => '1'
+        ]);
+    }
+    #trong model thêm : protected $fillable = ['title','content','user_id'];
+
+M) cập nhật dữ liệu vào bảng theo phương thức update()
+    use App\Models\Post;
+
+    function update($id){
+        Post::where('id',$id)
+        ->update([
+            'title' =>'update',
+            'content' => 'content update',
+            'user_id' => '1'
+        ]);
+    }
+    #trong model thêm : protected $fillable = ['title','content','user_id'];
+
+N) xóa dữ liệu với phương thức delete
+    function delete($id){
+        Post::find($id)->delete();
+    }
+
+O) xóa dữ liệu với phương thức delete có điều kiện
+    function delete($id){
+        Post::where('id',$id)->delete();
+    }
+
+P) xóa dữ liệu 1 bản ghi, nhiều bản ghi với phương thức destroy()
+    function destroy(){
+        Post::destroy([id1,..,id_n]);
+    }
+
+Q) thiết lập chế độ thùng rác SOFT DELETE
+    Lợi ích: 
+        - xóa dữ liệu tạm thời cho vào thùng rác tránh việc xóa nhầm
+        - có thể khôi phục lại dữ liệu đã xóa trước đó
+        - xuất danh sách bản ghi bao gồm cả bản ghi đã xóa tạm thời
+        - hỗ trợ phương thức xóa vình viễn
+    Bước 1: tạo CSDL softdelete qua migration
+        b1: php artisan make:migration add_softdelete_to_posts_table --table='posts'
+        b2: trong file migration vừa tạo 
+            -trong function up() -> thêm vào:   $table->softDeletes();
+            -trong function down() -> thêm vào:   $table->dropSoftDeletes();
+    Bước 2: Khai báo softdelete trong Model
+        trong model của table -> thêm vào:   use SoftDeletes;(thêm vào ngay trong class)
+
+R) xuất dữ liệu bản ghi đã xóa tạm thời và chưa xóa
+     $posts = Post::withTrashed()->get();
+        return $posts;
+
+P) chỉ xuất dữ liệu bản ghi đã xóa tạm thời
+     $posts = Post::onlyTrashed()->get();
+        return $posts;
+
+S) khôi phục bản ghi đã xóa tạm thời
+     Post::onlyTrashed()
+        ->where('id', $id)
+        ->restore();
+
+T) xóa dữ liệu vĩnh viễn 
+    #xóa dữ liệu của bản ghi đã bị xóa tạm thời
+    function permanentlyDelete($id){
+        Post::onlyTrashed()
+        ->where('id', $id)
+        ->forceDelete();
+    }
+    #xóa dữ liệu của bản ghi đã bị xóa tạm thời và chưa xóa tạm thời
+    function permanentlyDelete($id){
+        Post::withTrashed()
+        ->where('id', $id)
+        ->forceDelete();
+    }

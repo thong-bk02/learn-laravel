@@ -1,0 +1,8 @@
+bước1: mở cửa sổ composer: vào htdocs ->nhấn shift + chuột phải-> Open PowerShell window here
+bước2: chạy lệnh composer create-project --prefer-dist laravel/laravel tên_dự_án
+bước3: vào visual studio code -> mở project vừa tạo
+bước4: bật terminal("ctrl" + "~") -> chạy lệnh:  composer require laravel/ui
+bước5: xong b4 thì chạy lệnh: php artisan ui bootstrap hoặc php artisan ui bootstrap --auth
+bước6: chạy lệnh: npm install -> chạy 2 lần: npm run dev
+bước7: chạy php artisan migrate (với điều kiện đã tạo tên DB trong phpmyadmin)
+bước8: chạy : php artisan serve -> chạy link terminal("ctrl" + click) trên trình duyệt
